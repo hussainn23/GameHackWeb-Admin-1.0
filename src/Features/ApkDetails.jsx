@@ -91,10 +91,8 @@ const ApkDetails = () => {
         <CardHeader>
           <CardTitle><strong>Name: </strong>{apk.Name}</CardTitle>
           <CardDescription className='text-black text-lg'>
-            <strong>Created At: </strong>
-            {apk.created_at?.seconds
-              ? new Date(apk.created_at.seconds * 1000).toLocaleDateString()
-              : "N/A"}
+            <strong>Category: </strong>
+            {apk.Category}
           </CardDescription>
         </CardHeader>
         <CardContent>
