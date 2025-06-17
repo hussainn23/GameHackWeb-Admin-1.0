@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { getDownloadURL, ref, uploadBytes, deleteObject } from 'firebase/storage';
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const UpdateApk = () => {
   const { id } = useParams();
@@ -21,6 +23,8 @@ const UpdateApk = () => {
     Logo: '',
     SizeMB: '',
     Sections: [],
+    Visible: false,
+    Position: ''
   });
 
   const [mainImgFile, setMainImgFile] = useState(null);
@@ -33,7 +37,11 @@ const UpdateApk = () => {
       const snapshot = await getDoc(docRef);
       if (snapshot.exists()) {
         const data = snapshot.data();
-        setApkData(data);
+        setApkData({
+          ...data,
+          Visible: data.Visible || false,
+          Position: data.Position || ''
+        });
         const formattedSections = (data.Sections || []).map((sec) => ({ ...sec, File: null }));
         setSections(formattedSections);
       } else {
@@ -100,6 +108,8 @@ const UpdateApk = () => {
         Category: apkData.Category || '',
         URL: apkData.URL,
         SizeMB: apkData.SizeMB || '',
+        Visible: apkData.Visible,
+        Position: apkData.Visible ? apkData.Position : ''
       };
 
       if (mainImgFile) {
@@ -152,7 +162,7 @@ const UpdateApk = () => {
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Update APP</h2>
       <div className="mt-4 lg:w-[70%] sm:w-[95%] space-y-4">
-      <h3 className="text-[18px] font-semibold mt-4">App Name</h3>
+        <h3 className="text-[18px] font-semibold mt-4">App Name</h3>
         <Input
           type="text"
           name="Name"
@@ -160,7 +170,7 @@ const UpdateApk = () => {
           onChange={handleChange}
           placeholder="APK Name"
         />
-          <h3 className="text-[18px] font-semibold">APK Download URL</h3>
+        <h3 className="text-[18px] font-semibold">APK Download URL</h3>
         <Input
           type="text"
           name="URL"
@@ -168,14 +178,14 @@ const UpdateApk = () => {
           onChange={handleChange}
           placeholder="APK Download URL"
         />
-        <h3 className="text-[18px] font-semibold"> Category</h3>
-<Input
-  type="text"
-  name="Category"
-  value={apkData.Category}
-  onChange={handleChange}
-  placeholder="e.g. Games, Tools, Social"
-/>
+        <h3 className="text-[18px] font-semibold">Category</h3>
+        <Input
+          type="text"
+          name="Category"
+          value={apkData.Category}
+          onChange={handleChange}
+          placeholder="e.g. Games, Tools, Social"
+        />
         <h3 className="text-[18px] font-semibold mt-4">Description</h3>
         <Textarea
           name="Description"
@@ -184,18 +194,43 @@ const UpdateApk = () => {
           placeholder="APK Description"
           className="min-h-[100px]"
         />
-              <h3 className="text-[18px] font-semibold mb-2">Select Main Image</h3>
+        <h3 className="text-[18px] font-semibold mb-2">Select Main Image</h3>
         <Input
           type="file"
           accept="image/*"
           onChange={(e) => setMainImgFile(e.target.files[0])}
         />
-            <h3 className="text-[18px] font-semibold mb-2">Select Logo</h3>
+        <h3 className="text-[18px] font-semibold mb-2">Select Logo</h3>
         <Input
           type="file"
           accept="image/*"
           onChange={(e) => setLogoFile(e.target.files[0])}
         />
+
+        <div className="flex items-center space-x-2 mt-4">
+          <Checkbox
+            id="visible"
+            checked={apkData.Visible}
+            onCheckedChange={(val) => setApkData({ ...apkData, Visible: val })}
+          />
+          <label htmlFor="visible" className="text-sm">App visible on main screen</label>
+        </div>
+
+        {apkData.Visible && (
+          <div className="mt-2">
+            <h3 className="text-[18px] font-semibold mb-2">Select Position</h3>
+            <Select value={apkData.Position} onValueChange={(val) => setApkData({ ...apkData, Position: val })}>
+              <SelectTrigger className='w-full'>
+                <SelectValue placeholder="Select Position" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1">1</SelectItem>
+                <SelectItem value="2">2</SelectItem>
+                <SelectItem value="3">3</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        )}
 
         {sections.map((section, index) => (
           <div key={index} className="bg-gray-50 p-4 rounded shadow">

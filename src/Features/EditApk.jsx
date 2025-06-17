@@ -37,23 +37,53 @@ const EditApk = () => {
          <div className='p-4'>
       <h1 className='text-2xl font-bold'>Edit APPS</h1>
        <div className='p-4 lg:grid-cols-3 grid gap-3 sm:grid-cols-1'>
-                        {apkList.map(apk => (
-                        <Card  className='cursor-pointer'>
-                       <CardHeader>
-                         <CardTitle><strong >Name : </strong>{apk.Name}</CardTitle>
-                        <CardDescription className='text-black text-lg'>
-              <strong>Description:</strong>{" "}
-             {apk.Description}
-            </CardDescription>
-            
-                       </CardHeader>
-                       <CardContent className='flex gap-1 justify-center'>
-                                 <Button variant="outline" className='cursor-pointer text-white bg-green-700 hover:bg-green-600 hover:text-white' onClick={() => navigate(`/updateapk/${apk.id}`)} >Edit APP <Pen /></Button>
-                     
-                       </CardContent>
-                     
-                         </Card>
-                    ))}
+                     {apkList.map((apk) => (
+  <Card
+    key={apk.id}
+    className="cursor-pointer hover:shadow-lg transition-shadow duration-300 rounded-xl border"
+  >
+    <div className="p-4 flex items-start gap-4">
+      {/* App Logo (optional if available) */}
+      {apk.Logo && (
+        <img
+          src={apk.Logo}
+          alt={`${apk.Name} logo`}
+          className="w-16 h-16 object-cover rounded-md border"
+        />
+      )}
+
+      <div className="flex-1">
+        {/* App Name and Category */}
+        <div className="flex justify-between items-start mb-2">
+          <h2 className="text-lg font-semibold text-[#1F2937]">{apk.Name}</h2>
+          {apk.Visible && (
+            <span className="text-xs font-medium text-green-700 bg-green-100 px-2 py-1 rounded-full">
+              On Main Screen
+            </span>
+          )}
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-gray-700 mb-3 line-clamp-3">
+          <strong className="text-gray-800">Description: </strong>
+          {apk.Description}
+        </p>
+
+        {/* Edit Button */}
+        <div className="flex justify-end">
+          <Button
+            variant="outline"
+            className="text-white bg-green-700 hover:bg-green-600 flex items-center gap-2 px-4 py-2"
+            onClick={() => navigate(`/updateapk/${apk.id}`)}
+          >
+            Edit App <Pen size={16} />
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Card>
+))}
+
               </div></div>
   )
 }

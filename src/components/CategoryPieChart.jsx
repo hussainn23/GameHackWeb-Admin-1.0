@@ -37,8 +37,8 @@ const CategoryPieChart = ({ data }) => {
   return (
     <div className="relative w-full h-[300px]">
       {/* Center total display */}
-      <div className="absolute b-[5rem]  inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center">
+      <div className="absolute   inset-0 flex items-center justify-center pointer-events-none">
+        <div className="text-center absolute top-1/3 ">
           <p className="text-xl font-semibold text-gray-700">Total</p>
           <p className=" text-xl font-bold text-purple-700">{total}</p>
         </div>

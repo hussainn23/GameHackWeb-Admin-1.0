@@ -24,8 +24,8 @@ export function NavMain({ items }) {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel className="text-white text-2xl mb-3 flex items-center gap-2">
-        <FaUser className="text-3xl" />
+      <SidebarGroupLabel className="text-white lg:text-2xl sm:text-[12px] md:text-[14px] mb-3 flex items-center gap-2">
+        <FaUser className="lg:text-3xl " />
         Admin Panel
       </SidebarGroupLabel>
 

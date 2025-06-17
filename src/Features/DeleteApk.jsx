@@ -89,23 +89,37 @@ const handleDelete = async (id, apkUrl) => {
      <div className='p-4'>
       <h1 className='text-2xl font-bold'>Delete APPS</h1>
         <div className='p-4 lg:grid-cols-3 grid gap-3 sm:grid-cols-1'>
-                  {apkList.map(apk => (
-                  <Card  className='cursor-pointer'>
-                 <CardHeader>
-                   <CardTitle><strong >Name : </strong>{apk.Name}</CardTitle>
-                  <CardDescription className='text-black text-lg'>
-        <strong>Description:</strong>{" "}
-       {apk.Description}
+               {apkList.map(apk => (
+  <Card key={apk.id} className='cursor-pointer shadow-md border border-gray-200 hover:shadow-lg transition duration-300'>
+    <CardHeader className="flex flex-col gap-2">
+      {/* Optional logo */}
+      {apk.Logo && (
+        <img
+          src={apk.Logo}
+          alt="App Logo"
+          className="w-16 h-16 object-cover rounded-md border"
+        />
+      )}
+      <CardTitle className="text-xl font-semibold text-blue-900">
+        <strong>Name:</strong> {apk.Name}
+      </CardTitle>
+      <CardDescription className='text-gray-800 text-sm'>
+        <strong>Description:</strong> {apk.Description}
       </CardDescription>
-      
-                 </CardHeader>
-                 <CardContent className='flex gap-1 justify-center'>
-                           <Button variant="outline" className='cursor-pointer text-white bg-red-700 hover:bg-red-600 hover:text-white'   onClick={() => handleDelete(apk.id,apk.URL)}>Delete APP <ImBin /></Button>
-               
-                 </CardContent>
-               
-                   </Card>
-              ))}
+    </CardHeader>
+
+    <CardContent className='flex justify-center p-4'>
+      <Button
+        variant="outline"
+        className='bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md shadow-sm transition-all duration-300 flex items-center gap-2'
+        onClick={() => handleDelete(apk.id, apk.URL)}
+      >
+        Delete App <ImBin className="text-base" />
+      </Button>
+    </CardContent>
+  </Card>
+))}
+
         </div>
       </div>
   )

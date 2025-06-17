@@ -36,6 +36,9 @@ const AddApk = () => {
    const [Pic5,setPic5]=useState(null)
    const [des5,setdes5]=useState('')
   const fileInputRef = useRef(null);
+  const [showOnMainScreen, setShowOnMainScreen] = useState(false);
+const [mainPosition, setMainPosition] = useState('');
+
 
   const handleClick = () => {
     fileInputRef.current.click();
@@ -86,23 +89,26 @@ const AddApk = () => {
   const fileSizeInMB = (file.size / (1024 * 1024)).toFixed(2); // Size in MB with 2 decimals
 
     // Create Firestore document
-    await addDoc(collection(db, 'APK'), {
-      Name: name,
-      Description: description,
-      Category: category,
-      URL: apkURL,
-      created_at: serverTimestamp(),
-      MainImage: mainImgURL,
-      Logo: logoURL,
-       SizeMB: fileSizeInMB,
-      Sections: [
-        { Heading: head1, Image: Pic1URL, Description: des1 },
-        { Heading: head2, Image: Pic2URL, Description: des2 },
-        { Heading: head3, Image: Pic3URL, Description: des3 },
-        { Heading: head4, Image: Pic4URL, Description: des4 },
-        { Heading: head5, Image: Pic5URL, Description: des5 },
-      ]
-    });
+   await addDoc(collection(db, 'APK'), {
+  Name: name,
+  Description: description,
+  Category: category,
+  URL: apkURL,
+  created_at: serverTimestamp(),
+  MainImage: mainImgURL,
+  Logo: logoURL,
+  SizeMB: fileSizeInMB,
+ Visible: showOnMainScreen,
+  MainScreenPosition: showOnMainScreen ? mainPosition : null,
+  Sections: [
+    { Heading: head1, Image: Pic1URL, Description: des1 },
+    { Heading: head2, Image: Pic2URL, Description: des2 },
+    { Heading: head3, Image: Pic3URL, Description: des3 },
+    { Heading: head4, Image: Pic4URL, Description: des4 },
+    { Heading: head5, Image: Pic5URL, Description: des5 },
+  ]
+});
+
 
     toast.success('APK Uploaded Successfully!');
     setName('');
@@ -181,11 +187,36 @@ const AddApk = () => {
     <SelectItem value="COLOUR TRADING">COLOUR TRADING</SelectItem>
     <SelectItem value="YONO GAMES">YONO GAMES</SelectItem>
     <SelectItem value="RUMPY GAMES">RUMPY GAMES</SelectItem>
-     <SelectItem value="WINZO">WINZO</SelectItem>
-    <SelectItem value="LOTTERY">LOTTERY</SelectItem>
     <SelectItem value="OTHER GAMES">OTHER GAMES</SelectItem>
   </SelectContent>
 </Select>
+<div className="mt-4">
+  <label className="flex items-center gap-2">
+    <input
+      type="checkbox"
+      checked={showOnMainScreen}
+      onChange={(e) => setShowOnMainScreen(e.target.checked)}
+    />
+    <span className="text-md">Show app on main screen</span>
+  </label>
+
+  {showOnMainScreen && (
+    <div className="mt-4">
+      <h3 className="text-[18px] font-semibold mb-2">Select Position</h3>
+      <Select value={mainPosition} onValueChange={setMainPosition}>
+        <SelectTrigger className="w-[100%]">
+          <SelectValue placeholder="Choose position" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="1">1</SelectItem>
+          <SelectItem value="2">2</SelectItem>
+          <SelectItem value="3">3</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+  )}
+</div>
+
            {[1, 2, 3, 4, 5].map((num) => (
   <div key={num} className="bg-gray-50 p-6 rounded-lg  shadow-md mb-6">
     <h3 className="text-xl font-semibold mb-2">Heading {num}</h3>

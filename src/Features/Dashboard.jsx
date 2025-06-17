@@ -91,7 +91,7 @@ const Dashboard = () => {
     lg:col-start-3      
     lg:row-start-1       
     lg:row-span-2">
-        <h3 className="text-xl font-bold mb-4">APK Categories Overview</h3>
+        <h3 className=" font-semibold ">APK Categories Overview</h3>
         <CategoryPieChart data={chartData} />
       </div>
       </div>
