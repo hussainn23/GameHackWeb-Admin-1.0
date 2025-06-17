@@ -121,3 +121,7 @@
     @apply bg-background text-foreground;
   }
 }
+@theme {
+  --breakpoint-sm: 240px;   /* sm starts at 240px */
+  --breakpoint-md: 500px;   /* md starts at 500px */
+}

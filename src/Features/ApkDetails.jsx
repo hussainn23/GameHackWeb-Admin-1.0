@@ -98,10 +98,10 @@ const ApkDetails = () => {
         <CardContent>
           <h3><strong>Description:</strong> {apk.Description}</h3>
         </CardContent>
-        <CardFooter className='flex gap-1 justify-center'>
-          <Button
+        <div className="flex flex-row lg:flex-row sm:flex-col md:flex-col gap-2 justify-center items-center">
+           <Button
             variant="outline"
-            className='text-white bg-blue-800 hover:bg-blue-600'
+            className='text-white bg-blue-800 hover:bg-blue-600 '
             onClick={() => navigate(`/updateapk/${apk.id}`)} 
           >
             Edit Details <FaPencil className="ml-2" />
@@ -122,7 +122,8 @@ const ApkDetails = () => {
             </a>
             <FaDownload className="ml-2" />
           </Button>
-        </CardFooter>
+        </div>
+   
       </Card>
     </div>
   );

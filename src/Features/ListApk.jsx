@@ -19,7 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
-import { Filter } from 'lucide-react';
+import { Filter, ListFilter } from 'lucide-react';
 
 const ListApk = () => {
   const [apkList, setApkList] = useState([]);
@@ -57,7 +57,7 @@ const ListApk = () => {
         <h1 className='text-2xl font-bold'>All APPS</h1>
 
         <DropdownMenu>
-          <DropdownMenuTrigger className='cursor-pointer'><Filter /></DropdownMenuTrigger>
+          <DropdownMenuTrigger className='cursor-pointer'><ListFilter /></DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>Category</DropdownMenuLabel>
             <DropdownMenuSeparator />
