@@ -73,14 +73,15 @@ const ListApk = () => {
           <DropdownMenuContent>
             <DropdownMenuLabel>Category</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            {["COLOUR TRADING", "RUMPY GAMES", "YONO GAMES", "OTHER GAMES", "ALL"].map((cat) => (
-              <DropdownMenuItem
-                key={cat}
-                onClick={() => setSelectedCategory(cat === "ALL" ? null : cat)}
-              >
-                {cat}
-              </DropdownMenuItem>
-            ))}
+           {["COLOUR TRADING", "RUMPY GAMES", "YONO GAMES", "OTHER GAMES", "ALL"].map((cat) => (
+  <DropdownMenuItem
+    key={cat}
+    onClick={() => setSelectedCategory(cat === "ALL" ? null : cat.toLowerCase())}
+  >
+    {cat}
+  </DropdownMenuItem>
+))}
+
 
             <DropdownMenuSeparator />
             <DropdownMenuLabel>Filters</DropdownMenuLabel>

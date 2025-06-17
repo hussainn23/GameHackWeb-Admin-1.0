@@ -85,7 +85,7 @@ const ApkDetails = () => {
           <img
             src={apk.MainImage}
             alt="App Banner"
-            className="w-full h-48 object-fit rounded-lg mb-4"
+            className="w-full h-60 object-center rounded-lg mb-4"
           />
         )}
 
