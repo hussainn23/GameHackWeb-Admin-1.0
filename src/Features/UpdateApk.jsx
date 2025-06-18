@@ -197,6 +197,7 @@ const UpdateApk = () => {
           onChange={handleChange}
           placeholder="APK Description"
           className="min-h-[100px]"
+          maxLength={95}
         />
         <h3 className="text-[18px] font-semibold mb-2">Select Main Image</h3>
         <Input
@@ -213,11 +214,26 @@ const UpdateApk = () => {
           <div className='flex lg:flex-row sm:flex-col lg:items-center gap-3'>
 <div>
     <h3 className="text-[18px] font-semibold">Enter Rating</h3>
-          <Input className="mt-2" placeholder="Enter Rating" value={apkData.rating}  />
+        <Input
+  className="mt-2"
+  placeholder="Enter Rating"
+  name="rating"
+  value={apkData.rating}
+  onChange={handleChange}
+/>
+
+
+
 </div>
 <div>
   <h3 className="text-[18px] font-semibold">Enter Bonus</h3>
-        <Input className="mt-2" placeholder="Enter Bonus" value={apkData.bonus}  />
+       <Input
+  className="mt-2"
+  placeholder="Enter Bonus"
+  name="bonus"
+  value={apkData.bonus}
+  onChange={handleChange}
+/>
 
 </div>
 
