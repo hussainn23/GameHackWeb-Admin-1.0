@@ -24,7 +24,9 @@ const UpdateApk = () => {
     SizeMB: '',
     Sections: [],
     Visible: false,
-    Position: ''
+    Position: '',
+    rating:'',
+    bonus:''
   });
 
   const [mainImgFile, setMainImgFile] = useState(null);
@@ -104,6 +106,8 @@ const UpdateApk = () => {
 
       const updateData = {
         Name: apkData.Name,
+        rating:apkData.rating,
+        bonus:apkData.bonus,
         Description: apkData.Description,
         Category: apkData.Category || '',
         URL: apkData.URL,
@@ -206,7 +210,19 @@ const UpdateApk = () => {
           accept="image/*"
           onChange={(e) => setLogoFile(e.target.files[0])}
         />
+          <div className='flex lg:flex-row sm:flex-col lg:items-center gap-3'>
+<div>
+    <h3 className="text-[18px] font-semibold">Enter Rating</h3>
+          <Input className="mt-2" placeholder="Enter Rating" value={apkData.rating}  />
+</div>
+<div>
+  <h3 className="text-[18px] font-semibold">Enter Bonus</h3>
+        <Input className="mt-2" placeholder="Enter Bonus" value={apkData.bonus}  />
 
+</div>
+
+  
+</div>
         <div className="flex items-center space-x-2 mt-4">
           <Checkbox
             id="visible"

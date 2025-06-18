@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/select"
 const AddApk = () => {
   const [name, setName] = useState('');
+    const [bonus, setBonus] = useState('');
+   const [rating, setRating] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
@@ -94,6 +96,8 @@ const [mainPosition, setMainPosition] = useState('');
   Description: description,
   Category: category,
   URL: apkURL,
+  rating:rating,
+  bonus:bonus,
   created_at: serverTimestamp(),
   MainImage: mainImgURL,
   Logo: logoURL,
@@ -154,7 +158,7 @@ const [mainPosition, setMainPosition] = useState('');
         <h3 className="text-[18px] font-semibold mt-4">Description</h3>
         <Textarea
                   name="Description" className="mt-2" placeholder="Enter Description" value={description} onChange={(e) => setDescription(e.target.value)} />
-         <div className="flex flex-col sm:flex-row gap-6 mt-4">
+         <div className="flex flex-col sm:flex-col gap-6 mt-4">
   {/* Main Image */}
   <div className="flex-1">
     <h3 className="text-[18px] font-semibold mb-2">Select Main Image</h3>
@@ -190,6 +194,20 @@ const [mainPosition, setMainPosition] = useState('');
     <SelectItem value="OTHER GAMES">OTHER GAMES</SelectItem>
   </SelectContent>
 </Select>
+<div className='flex lg:flex-row sm:flex-col lg:items-center gap-3'>
+<div>
+    <h3 className="text-[18px] font-semibold">Enter Rating</h3>
+          <Input className="mt-2" placeholder="Enter Rating" value={rating} onChange={(e) => setRating(e.target.value)} />
+</div>
+<div>
+  <h3 className="text-[18px] font-semibold">Enter Bonus</h3>
+        <Input className="mt-2" placeholder="Enter Bonus" value={bonus} onChange={(e) => setBonus(e.target.value)} />
+
+</div>
+
+  
+</div>
+ 
 <div className="mt-4">
   <label className="flex items-center gap-2">
     <input
