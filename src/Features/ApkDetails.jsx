@@ -111,7 +111,7 @@ const ApkDetails = () => {
               )}
               {apk.SizeMB && <span>{apk.SizeMB} MB</span>}
               {apk.Visible && (
-                <span className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+                <span className="bg-green-100 text-green-700 lg:text-xs sm:text-[0.5rem] font-semibold px-2 py-1 rounded-full">
                   Visible on Home
                 </span>
               )}
