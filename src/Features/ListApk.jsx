@@ -116,10 +116,10 @@ const ListApk = () => {
       </div>
 
       {/* APK Cards */}
-      <div className='p-4 lg:grid-cols-2 grid gap-3 sm:grid-cols-1'>
+      <div className='lg:p-4 sm:p-1 lg:grid-cols-2 grid gap-3 sm:grid-cols-1'>
        {filteredList.map(apk => (
   <Card key={apk.id} className="hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden border">
-    <div className="p-4 flex items-start gap-4">
+    <div className="lg:p-4 sm:p-1 flex items-start gap-4">
       {/* App Logo */}
       {apk.Logo && (
         <img
