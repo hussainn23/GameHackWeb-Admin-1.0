@@ -61,7 +61,7 @@ const ListApk = () => {
   }, [apkList, selectedCategory, showOnlyVisible]);
 
   return (
-    <div className='p-4'>
+    <div className='p-4 2xl:ml-[5rem]'>
       <div className='flex justify-between items-center'>
         <h1 className='text-2xl font-bold'>All APPS</h1>
 

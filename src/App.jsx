@@ -21,7 +21,7 @@ function App() {
          <Route path="/apkdetails/:id" element={<ApkDetails />}/>
          <Route path="/updateapk/:id" element={<UpdateApk />}/>
          <Route  path='/addApk' element={<AddApk />}/>
-         <Route path='/deleteApk' element={<DeleteApk />}/>
+         <Route path='/deleteApks' element={<DeleteApk />}/>
          <Route path='/editApks' element={<EditApk />}/>
          <Route path='/telegram' element={<Telegram />}/>
       </Routes>

@@ -163,7 +163,7 @@ const UpdateApk = () => {
   }, [id]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 2xl:ml-[5rem]">
       <h2 className="text-2xl font-bold mb-4">Update APP</h2>
       <div className="mt-4 lg:w-[70%] sm:w-[95%] space-y-4">
         <h3 className="text-[18px] font-semibold mt-4">App Name</h3>

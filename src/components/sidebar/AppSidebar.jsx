@@ -44,22 +44,22 @@ const data = {
       icon:Archive,
    
     },
-    {
-      title: "Upload APP",
-      url: "/addApk",
-      icon: FileUp,
+    // {
+    //   title: "Upload APP",
+    //   url: "/addApk",
+    //   icon: FileUp,
       
-    },
-    {
-      title:"Delete APP",
-      url:"/deleteApk",
-      icon:Delete
-    },
-     {
-      title:"Edit APP",
-      url:"/editApks",
-      icon:Pen
-    },
+    // },
+    // {
+    //   title:"Delete APP",
+    //   url:"/deleteApk",
+    //   icon:Delete
+    // },
+    //  {
+    //   title:"Edit APP",
+    //   url:"/editApks",
+    //   icon:Pen
+    // },
      {
       title:"Telegram ",
       url:"/telegram",

@@ -56,7 +56,7 @@ const Dashboard = () => {
     value,
   }));
   return (
-    <div className="p-6">
+    <div className="p-6 2xl:ml-[5rem]">
       <h1 className="text-3xl font-bold mb-1">Dashboard</h1>
       <h2 className="text-lg font-medium flex items-center gap-2 text-gray-600">
         Welcome back, Admin <MdWavingHand size={25} color="#1A2536" />
@@ -75,7 +75,7 @@ const Dashboard = () => {
           icon={<FaPlus size={55} />}
           onClick={() => navigate("/addApk")}
         />
-        <DashboardCard
+        {/* <DashboardCard
           title="Edit App"
           description="Tap to edit existing apps"
           icon={<Pen size={55} />}
@@ -86,7 +86,7 @@ const Dashboard = () => {
           description="Tap to delete apps"
           icon={<DeleteIcon size={55} />}
           onClick={() => navigate("/deleteApks")}
-        />
+        /> */}
       <div className=" bg-white p-6 rounded-lg shadow  col-span-1
     lg:col-start-3      
     lg:row-start-1       

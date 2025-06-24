@@ -83,7 +83,7 @@ const Telegram = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 2xl:ml-[5rem]">
       <h1 className="text-2xl font-bold">Telegram Link</h1>
 
       <div className="mt-4 lg:w-[70%] sm:w-[95%]">
