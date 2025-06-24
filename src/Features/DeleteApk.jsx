@@ -86,7 +86,7 @@ const handleDelete = async (id, apkUrl) => {
         return () => TotalApks();
       }, []);
   return (
-     <div className='p-4 2xl:ml-[5rem]'>
+     <div className='p-4 2xl:ml-[5rem] xl:ml-[2.5rem]'>
       <h1 className='text-2xl font-bold'>Delete APPS</h1>
         <div className='p-4 lg:grid-cols-3 grid gap-3 sm:grid-cols-1'>
                {apkList.map(apk => (

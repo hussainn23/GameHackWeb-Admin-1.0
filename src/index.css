@@ -131,5 +131,6 @@
 
 @theme {
   --breakpoint-sm: 240px;   /* sm starts at 240px */
-  --breakpoint-md: 500px;   /* md starts at 500px */
+  --breakpoint-md: 500px;
+   --breakpoint-xl: 1300px;    /* md starts at 500px */
 }

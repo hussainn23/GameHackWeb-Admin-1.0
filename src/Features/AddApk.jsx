@@ -129,7 +129,7 @@ const [mainPosition, setMainPosition] = useState('');
 
 
   return (
-    <div className="p-6 2xl:ml-[5rem]">
+    <div className="p-6 2xl:ml-[5rem] xl:ml-[2.5rem]">
       <h1 className="text-2xl font-bold">Upload APP</h1>
 
       <div className="mt-4 lg:w-[70%] sm:w-[95%]">

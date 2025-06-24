@@ -56,7 +56,7 @@ const Dashboard = () => {
     value,
   }));
   return (
-    <div className="p-6 2xl:ml-[5rem]">
+    <div className="p-6 2xl:ml-[5rem] xl:ml-[2.5rem]">
       <h1 className="text-3xl font-bold mb-1">Dashboard</h1>
       <h2 className="text-lg font-medium flex items-center gap-2 text-gray-600">
         Welcome back, Admin <MdWavingHand size={25} color="#1A2536" />
