@@ -90,7 +90,7 @@ const ApkDetails = () => {
         )}
 
         {/* Top Info Row */}
-        <div className='flex items-center gap-4 mb-4'>
+        <div className='flex items-center lg:gap-4 sm:gap-2 mb-4'>
           {/* Logo */}
           {apk.Logo && (
             <img
