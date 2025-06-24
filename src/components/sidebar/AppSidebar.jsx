@@ -20,6 +20,7 @@ import {
   SidebarHeader,
 
 } from "../ui/sidebar.jsx"
+import { FaTelegram, FaTelegramPlane } from "react-icons/fa"
 
 // This is sample data.
 const data = {
@@ -58,6 +59,11 @@ const data = {
       title:"Edit APP",
       url:"/editApks",
       icon:Pen
+    },
+     {
+      title:"Telegram ",
+      url:"/telegram",
+      icon:FaTelegramPlane
     }
   
   ],

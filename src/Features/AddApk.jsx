@@ -190,7 +190,7 @@ const [mainPosition, setMainPosition] = useState('');
   <SelectContent>
     <SelectItem value="COLOUR TRADING">COLOUR TRADING</SelectItem>
     <SelectItem value="YONO GAMES">YONO GAMES</SelectItem>
-    <SelectItem value="RUMPY GAMES">RUMPY GAMES</SelectItem>
+    <SelectItem value="RUMMY GAMES">RUMMY GAMES</SelectItem>
     <SelectItem value="OTHER GAMES">OTHER GAMES</SelectItem>
   </SelectContent>
 </Select>

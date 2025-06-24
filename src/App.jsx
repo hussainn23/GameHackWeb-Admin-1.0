@@ -8,6 +8,7 @@ import { Toaster } from 'sonner';
 import DeleteApk from './Features/DeleteApk';
 import EditApk from './Features/EditApk';
 import  UpdateApk  from './Features/UpdateApk';
+import Telegram from './Features/Telegram';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -18,10 +19,11 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/allApks" element={<ListApk />}/>
          <Route path="/apkdetails/:id" element={<ApkDetails />}/>
-             <Route path="/updateapk/:id" element={<UpdateApk />}/>
+         <Route path="/updateapk/:id" element={<UpdateApk />}/>
          <Route  path='/addApk' element={<AddApk />}/>
          <Route path='/deleteApk' element={<DeleteApk />}/>
          <Route path='/editApks' element={<EditApk />}/>
+         <Route path='/telegram' element={<Telegram />}/>
       </Routes>
 
     </>
