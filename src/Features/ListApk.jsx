@@ -116,7 +116,7 @@ const ListApk = () => {
       </div>
 
       {/* APK Cards */}
-      <div className='lg:p-4 sm:p-1 lg:grid-cols-2 grid gap-3 sm:grid-cols-1'>
+      <div className='lg:p-4 sm:px-1 sm:py-4 lg:grid-cols-2 grid gap-3 sm:grid-cols-1'>
        {filteredList.map(apk => (
   <Card key={apk.id} className="hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden border">
     <div className="lg:p-4 sm:p-1 flex items-start gap-4">
