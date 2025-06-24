@@ -24,6 +24,8 @@ import { ListFilter } from 'lucide-react';
 
 const ListApk = () => {
   const [apkList, setApkList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
   const [filteredList, setFilteredList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showOnlyVisible, setShowOnlyVisible] = useState(false); // ✅ New State
@@ -43,28 +45,41 @@ const ListApk = () => {
   }, []);
 
   // Apply filtering whenever data or filter changes
-  useEffect(() => {
-    let filtered = [...apkList];
+ useEffect(() => {
+  let filtered = [...apkList];
 
-    if (selectedCategory) {
-  filtered = filtered.filter(
-    apk => (apk.Category || "").toLowerCase() === selectedCategory.toLowerCase()
-  );
-}
+  if (selectedCategory) {
+    filtered = filtered.filter(
+      apk => (apk.Category || "").toLowerCase() === selectedCategory.toLowerCase()
+    );
+  }
 
+  if (showOnlyVisible) {
+    filtered = filtered.filter(apk => apk.Visible === true);
+  }
 
-    if (showOnlyVisible) {
-      filtered = filtered.filter(apk => apk.Visible === true);
-    }
+  if (searchTerm.trim()) {
+    filtered = filtered.filter(apk =>
+      apk.Name?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
 
-    setFilteredList(filtered);
-  }, [apkList, selectedCategory, showOnlyVisible]);
+  setFilteredList(filtered);
+}, [apkList, selectedCategory, showOnlyVisible, searchTerm]);
+
 
   return (
-    <div className='p-4 2xl:ml-[5rem] xl:ml-[2.5rem]'>
-      <div className='flex justify-between items-center'>
+    <div className='lg:p-4 2xl:ml-[5rem] xl:ml-[2.5rem] sm:py-3'>
+      <div className=' sm:px-1 flex justify-between items-center'>
         <h1 className='text-2xl font-bold'>All APPS</h1>
-
+        <div className='flex items-center gap-4'>
+                 <input
+      type="text"
+      placeholder="Search apps..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className="border rounded px-3 py-1 text-sm w-[180px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
         {/* Filter Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger className='cursor-pointer'>
@@ -73,7 +88,7 @@ const ListApk = () => {
           <DropdownMenuContent>
             <DropdownMenuLabel>Category</DropdownMenuLabel>
             <DropdownMenuSeparator />
-           {["COLOUR TRADING", "RUMPY GAMES", "YONO GAMES", "OTHER GAMES", "ALL"].map((cat) => (
+           {["COLOUR TRADING", "RUMMY GAMES", "YONO GAMES", "OTHER GAMES", "ALL"].map((cat) => (
   <DropdownMenuItem
     key={cat}
     onClick={() => setSelectedCategory(cat === "ALL" ? null : cat.toLowerCase())}
@@ -96,6 +111,8 @@ const ListApk = () => {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        </div>
+ 
       </div>
 
       {/* APK Cards */}

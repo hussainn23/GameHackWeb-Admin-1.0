@@ -78,7 +78,7 @@ const ApkDetails = () => {
   if (!apk) return <p className='p-4'>Loading...</p>;
 
   return (
-    <div className='p-4 flex items-center justify-center 2xl:ml-[5rem] xl:ml-[2.5rem]'>
+    <div className='lg:p-4 sm:py-2 flex items-center justify-center 2xl:ml-[5rem] xl:ml-[2.5rem]'>
       <Card className='w-full max-w-3xl p-4 rounded-xl shadow-lg'>
         {/* Banner Image */}
         {apk.MainImage && (
