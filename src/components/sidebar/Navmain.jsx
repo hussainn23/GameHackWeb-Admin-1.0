@@ -17,7 +17,7 @@ import {
 } from "../ui/sidebar";
 
 import { FaUser } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function NavMain({ items }) {
   const location = useLocation();
@@ -62,8 +62,8 @@ export function NavMain({ items }) {
                     {item.items.map((subItem) => (
                       <SidebarMenuSubItem key={`${item.title}-${subItem.title}`}>
                         <SidebarMenuSubButton asChild>
-                          <a
-                            href={subItem.url}
+                          <Link
+                            to={subItem.url}
                             className={`block px-3 py-2 rounded-md transition ${
                               location.pathname === subItem.url
                                 ? "bg-muted text-primary"
@@ -71,7 +71,7 @@ export function NavMain({ items }) {
                             }`}
                           >
                             <span>{subItem.title}</span>
-                          </a>
+                          </Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
@@ -88,10 +88,10 @@ export function NavMain({ items }) {
                   isActive ? "bg-muted text-primary" : ""
                 }`}
               >
-                <a href={item.url}>
+                <Link to={item.url}>
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           );
