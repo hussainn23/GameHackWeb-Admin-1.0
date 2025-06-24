@@ -126,7 +126,7 @@ const ApkDetails = () => {
         </CardContent>
 
         {/* Actions */}
-        <CardFooter className='flex flex-col sm:flex-row gap-3 justify-end'>
+        <CardFooter className='flex lg:flex-row sm:flex-col gap-3 justify-end'>
           <Button
             variant="outline"
             className='text-white bg-blue-800 hover:bg-blue-600 w-full sm:w-auto'

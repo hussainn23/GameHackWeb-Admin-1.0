@@ -117,9 +117,9 @@ const Telegram = () => {
             <span className="break-all">{link.URL}</span>
             <div className="flex gap-2">
               <Button
-                className="bg-yellow-500 text-white hover:bg-yellow-600"
+                className="bg-green-600 text-white hover:bg-yellow-600"
                 onClick={() => handleEdit(link)}
-              >
+              >  
                 Edit
               </Button>
               <Button
