@@ -20,7 +20,8 @@ import {
   SidebarHeader,
 
 } from "../ui/sidebar.jsx"
-import { FaTelegram, FaTelegramPlane } from "react-icons/fa"
+import { FaBlogger, FaTelegram, FaTelegramPlane } from "react-icons/fa"
+import { FaBlog } from "react-icons/fa6"
 
 // This is sample data.
 const data = {
@@ -44,12 +45,12 @@ const data = {
       icon:Archive,
    
     },
-    // {
-    //   title: "Upload APP",
-    //   url: "/addApk",
-    //   icon: FileUp,
+    {
+      title: "All Blogs",
+      url: "/allblogs",
+      icon: FaBlogger,
       
-    // },
+    },
     // {
     //   title:"Delete APP",
     //   url:"/deleteApk",

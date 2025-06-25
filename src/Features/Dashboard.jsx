@@ -31,6 +31,7 @@ const DashboardCard = ({ title, description, icon, onClick }) => (
 
 const Dashboard = () => {
   const [apkList, setApkList] = useState([]);
+  const [blogList, setblogList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,6 +42,18 @@ const Dashboard = () => {
         ...doc.data(),
       }));
       setApkList(data);
+    });
+
+    return () => unsubscribe();
+  }, []);
+   useEffect(() => {
+    const collectionRef = collection(db, "Blogs");
+    const unsubscribe = onSnapshot(collectionRef, (snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setblogList(data);
     });
 
     return () => unsubscribe();
@@ -75,18 +88,19 @@ const Dashboard = () => {
           icon={<FaPlus size={55} />}
           onClick={() => navigate("/addApk")}
         />
-        {/* <DashboardCard
-          title="Edit App"
-          description="Tap to edit existing apps"
-          icon={<Pen size={55} />}
-          onClick={() => navigate("/editApks")}
+        <DashboardCard
+          title="View all Blogs"
+          description="Tap to view all blogs"
+          icon={<p className="text-lg font-semibold">Total Blogs: {blogList.length}</p>}
+          onClick={() => navigate("/allblogs")}
         />
         <DashboardCard
-          title="Delete App"
-          description="Tap to delete apps"
-          icon={<DeleteIcon size={55} />}
-          onClick={() => navigate("/deleteApks")}
-        /> */}
+          title="Add Blog"
+          description="Tap to add a new blog"
+       icon={<FaPlus size={55} />}
+          onClick={() => navigate("/addblogs")}
+        />
+     
       <div className=" bg-white p-6 rounded-lg shadow  col-span-1
     lg:col-start-3      
     lg:row-start-1       
